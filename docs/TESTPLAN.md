@@ -1,0 +1,16 @@
+# Test Plan for COBOL Student Account Management System
+
+This test plan covers all business logic implemented in the legacy COBOL application for student account management. Use this plan to validate the system with business stakeholders and as a basis for future Node.js unit and integration tests.
+
+| Test Case ID | Test Case Description                                 | Pre-conditions                | Test Steps                                                                 | Expected Result                                              | Actual Result | Status (Pass/Fail) | Comments |
+|--------------|-------------------------------------------------------|-------------------------------|---------------------------------------------------------------------------|--------------------------------------------------------------|---------------|--------------------|----------|
+| TC-01        | View current account balance                          | Account exists with balance   | 1. Start app  2. Select 'View Balance'                                     | Current balance is displayed correctly                       |               |                    |          |
+| TC-02        | Credit account with valid amount                      | Account exists                | 1. Start app  2. Select 'Credit Account'  3. Enter valid amount            | Amount is added to balance; new balance displayed            |               |                    |          |
+| TC-03        | Debit account with sufficient funds                   | Account exists, balance >= X  | 1. Start app  2. Select 'Debit Account'  3. Enter amount ≤ balance         | Amount is subtracted; new balance displayed                  |               |                    |          |
+| TC-04        | Debit account with insufficient funds                 | Account exists, balance < X   | 1. Start app  2. Select 'Debit Account'  3. Enter amount > balance         | Error message: 'Insufficient funds'; balance unchanged       |               |                    |          |
+| TC-05        | Enter invalid menu option                             | App running                   | 1. Start app  2. Enter invalid menu option (e.g., 5 or letter)             | Error message: 'Invalid choice, please select 1-4.'          |               |                    |          |
+| TC-06        | Exit the application                                  | App running                   | 1. Start app  2. Select 'Exit'                                              | App displays goodbye message and exits                       |               |                    |          |
+| TC-07        | Data consistency after multiple credits and debits    | Account exists                | 1. Start app  2. Perform multiple credits and debits  3. View balance      | Final balance reflects all operations accurately             |               |                    |          |
+| TC-08        | Data persistence between sessions                     | Account exists                | 1. Start app  2. Credit or debit account  3. Exit  4. Restart app  5. View balance | Balance reflects previous session's last state               |               |                    |          |
+
+> **Note:** Fill in 'Actual Result', 'Status', and 'Comments' during test execution.
